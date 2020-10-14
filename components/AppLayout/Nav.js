@@ -8,7 +8,10 @@ Router.onRouteChangeError = () => NProgress.done();
 const Nav = (props) => {
   const user = true;
   const authlinks = [{ title: "Create", href: "/create", auth: true }];
-  const navlinks = [{ title: "About", href: "/about", auth: false }];
+  const navlinks = [{ title: "About", href: "/about", auth: false },
+  { title: "Armwrestling", href: "/armwrestling", auth: false },
+  { title: "Grip", href: "/grip", auth: false },
+  { title: "Contact", href: "/contact", auth: false }];
   return (
     <>
       <nav className="nav">
@@ -18,7 +21,7 @@ const Nav = (props) => {
           </Link>
         </span>
         <ul className="navlinks">
-          {user &&
+          {/* {user &&
             authlinks.map((link) => {
               return (
                 <li className={link.title} key={link.title}>
@@ -27,7 +30,7 @@ const Nav = (props) => {
                   </Link>
                 </li>
               );
-            })}
+            })} */}
           {navlinks.map((link) => {
             return (
               <li className={link.title} key={link.title}>
@@ -38,7 +41,7 @@ const Nav = (props) => {
             );
           })}
 
-          {user ? (
+          {/* {user ? (
             <>
               <li>
                 <Link href="/account">
@@ -64,7 +67,7 @@ const Nav = (props) => {
                 </Link>
               </li>
             </>
-          )}
+          )} */}
         </ul>
       </nav>
       <style jsx>{`

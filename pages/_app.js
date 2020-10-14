@@ -3,7 +3,7 @@ import Head from "next/head";
 import App from "next/app";
 import Nav from "../components/AppLayout/Nav";
 import Foot from "../components/AppLayout/Footer";
-
+import '../styles/tailwind.css'
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -22,9 +22,9 @@ class MyApp extends App {
             <title>Why Hello There</title>
             <link rel="stylesheet" type="text/css" href="/globals.css" />
           </Head>
-          <Header className="head">
+      
             <Nav />
-          </Header>
+      
         
             <div className="main">
               <Component {...pageProps} />
@@ -42,8 +42,8 @@ class MyApp extends App {
             min-height: 91vh;
             display: flex;
             justify-content: center;
-            // background-color: blue;
-            align-items: center;
+         
+            // align-items: center;
             margin-top: 1em;
           }
         `}</style>
