@@ -8,26 +8,37 @@ Router.onRouteChangeError = () => NProgress.done();
 const Nav = (props) => {
   const user = true;
   const authlinks = [{ title: "Create", href: "/create", auth: true }];
-  const navlinks = [{ title: "About", href: "/about", auth: false },
-  { title: "Learn", href: "/learn", auth: false },
-  { title: "Armwrestling", href: "/armwrestling", auth: false },
-  { title: "Grip", href: "/grip", auth: false },
-  { title: "Contact", href: "/contact", auth: false },
+  const navlinks = [
+    { title: "About", href: "/about", auth: false },
+    { title: "Learn", href: "/learn", auth: false },
+    // { title: "Armwrestling", href: "/armwrestling", auth: false },
+    // { title: "Grip", href: "/grip", auth: false },
+    { title: "Contact", href: "/contact", auth: false },
   ];
   return (
-    <div className="flex justify-around mt-2">
-      <span className="logo">
+    <div className="flex justify-between mt-2">
+      <span className="logo ml-8">
         <Link href="/">
           <a className="hover:text-white">Logo</a>
         </Link>
       </span>
-      <div class="block lg:hidden">
-        <button class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-600 hover:text-white hover:border-white">
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
-        </button>
+      <div className="flex justify-end mr-2 w-full">
+        <div class="block lg:hidden">
+          <button className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-600 hover:text-white hover:border-white">
+            <svg
+              className="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <div className="flex justify-around text-gray-500 w-1/2 items-center hidden lg:block">
-        {/* {user &&
+      <div className="flex justify-end mr-8">
+        <div className="flex justify-end text-gray-500 items-center hidden lg:block">
+          {/* {user &&
             authlinks.map((link) => {
               return (
                 <li className={link.title} key={link.title}>
@@ -37,17 +48,17 @@ const Nav = (props) => {
                 </li>
               );
             })} */}
-        {navlinks.map((link) => {
-          return (
+          {navlinks.map((link) => {
+            return (
+              <Link href={link.href} key={link.title}>
+                <a className="hover:text-white hover:bg-gray-800 py-2 px-5 rounded-full">
+                  {link.title}
+                </a>
+              </Link>
+            );
+          })}
 
-            <Link href={link.href} key={link.title}>
-              <a className="hover:text-white hover:bg-gray-800 py-2 px-4 rounded-full">{link.title}</a>
-            </Link>
-
-          );
-        })}
-
-        {/* {user ? (
+          {/* {user ? (
             <>
               <li>
                 <Link href="/account">
@@ -74,6 +85,7 @@ const Nav = (props) => {
               </li>
             </>
           )} */}
+        </div>
       </div>
     </div>
   );
