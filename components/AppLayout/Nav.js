@@ -9,19 +9,25 @@ const Nav = (props) => {
   const user = true;
   const authlinks = [{ title: "Create", href: "/create", auth: true }];
   const navlinks = [{ title: "About", href: "/about", auth: false },
+  { title: "Learn", href: "/learn", auth: false },
   { title: "Armwrestling", href: "/armwrestling", auth: false },
   { title: "Grip", href: "/grip", auth: false },
-  { title: "Contact", href: "/contact", auth: false }];
+  { title: "Contact", href: "/contact", auth: false },
+  ];
   return (
-    <>
-      <nav className="nav">
-        <span className="logo">
-          <Link href="/">
-            <a>Logo</a>
-          </Link>
-        </span>
-        <ul className="navlinks">
-          {/* {user &&
+    <div className="flex justify-around mt-2">
+      <span className="logo">
+        <Link href="/">
+          <a className="hover:text-white">Logo</a>
+        </Link>
+      </span>
+      <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-600 hover:text-white hover:border-white">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+        </button>
+      </div>
+      <div className="flex justify-around text-gray-500 w-1/2 items-center hidden lg:block">
+        {/* {user &&
             authlinks.map((link) => {
               return (
                 <li className={link.title} key={link.title}>
@@ -31,17 +37,17 @@ const Nav = (props) => {
                 </li>
               );
             })} */}
-          {navlinks.map((link) => {
-            return (
-              <li className={link.title} key={link.title}>
-                <Link href={link.href}>
-                  <a>{link.title}</a>
-                </Link>
-              </li>
-            );
-          })}
+        {navlinks.map((link) => {
+          return (
 
-          {/* {user ? (
+            <Link href={link.href} key={link.title}>
+              <a className="hover:text-white hover:bg-gray-800 py-2 px-4 rounded-full">{link.title}</a>
+            </Link>
+
+          );
+        })}
+
+        {/* {user ? (
             <>
               <li>
                 <Link href="/account">
@@ -68,33 +74,8 @@ const Nav = (props) => {
               </li>
             </>
           )} */}
-        </ul>
-      </nav>
-      <style jsx>{`
-        .nav {
-          display: flex;
-          justify-content: space-around;
-          // height:60
-          min-height: 54px;
-          min-width: 100%;
-        }
-        .navlinks {
-          width: 33%;
-          display: flex;
-          list-style-type: none;
-          justify-content: space-around;
-        }
-        li:hover a:hover {
-          color: white;
-          background-color: black;
-        }
-        .logo {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      `}</style>
-    </>
+      </div>
+    </div>
   );
 };
 export default Nav;
