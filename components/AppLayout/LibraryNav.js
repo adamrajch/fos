@@ -9,8 +9,10 @@ const LibraryHeader = () => {
         {list.map((link) => {
           return (
             <li>
-              <Link href={"/library/" + link}>
-                <a className="hover:text-white">{link.charAt(0).toUpperCase() + link.slice(1)}</a>
+              <Link href={"/library/" + link} key={link}>
+                <a className="hover:text-white">
+                  {link.charAt(0).toUpperCase() + link.slice(1)}
+                </a>
               </Link>
             </li>
           );

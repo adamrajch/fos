@@ -38,10 +38,9 @@ class MyApp extends App {
           }
           .main {
             min-height: 91vh;
-            display: flex;
-            justify-content: center;
+            // display: flex;
+            // justify-content: center;
 
-            // align-items: center;
             margin-top: 1em;
           }
         `}</style>

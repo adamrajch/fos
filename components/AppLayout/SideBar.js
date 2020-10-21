@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Side = ({ contents }) => {
   console.log(contents);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-center">
       {contents.map((category) => {
         return (
           <motion.div
